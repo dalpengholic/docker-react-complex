@@ -16,10 +16,8 @@ after_success:
     - docker build -t dalpengholic/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # Take those images and push them to docker hub
     - docker push dalpengholic/multi-client
     - docker push dalpengholic/multi-nginx
     - docker push dalpengholic/multi-server
     - docker push dalpengholic/multi-worker
-
-
-    # Take those images and push them to docker hub
