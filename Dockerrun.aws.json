@@ -1,0 +1,37 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name": "client",
+            "image": "dalpengholic/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "dalpengholic/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "dalpengholic/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "dalpengholic/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings":[
+                {
+                    "hostProt":80,
+                    "containerPort":80
+                }
+            ],
+            "links":["client","server"]
+        }
+
+    ]
+}
