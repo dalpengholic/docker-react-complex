@@ -23,7 +23,7 @@ after_success:
   - docker push dalpengholic/multi-server
   - docker push dalpengholic/multi-worker
 
-deploy: 
+deploy: #
   edge: true
   provider: elasticbeanstalk
   region: us-east-1
